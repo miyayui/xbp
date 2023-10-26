@@ -3,24 +3,35 @@ import random
 # ゲームで使用する単語リスト
 words = ["python", "programming", "code", "computer", "keyboard", "practice", "challenge"]
 
-score=0
-incorrect=False
-while True:
-        target_word = random.choice(words)
-        print(f"次の文字を打て！: {target_word}")
-        
-        user_input = input()
-        if user_input == target_word:
-            print("○")
-            score+=1
-        else:
-            print("×")
-            incorrect=True
+def main():
+    print("Welcome to the Typing Game!")
+    input("Press Enter to start...")
+
+    while True:
+        score = 0
+        incorrect = False
+
+        while True:
+            target_word = random.choice(words)
+            print(f"Type this word: {target_word}")
+
+            user_input = input()
+            if user_input == target_word:
+                score += 1
+                print("Correct!")
+            else:
+                print("Incorrect!")
+                incorrect = True
+                break  # 間違えた場合、内部の無限ループを終了
+        print(f"Gane Over! Your score:{score}")
+
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != "yes":
             break
 
-        play_again=input("再挑戦しますか？（はい/いいえ）:").lower()
-        if play_again !="はい":
-             break
-        
-        print=(f"game over! あなたの正解数は{score}でした！")
+    
+
+if __name__ == "__main__":
+    main()
+
 
