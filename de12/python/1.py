@@ -31,14 +31,14 @@ def main():
                     break  # 間違えた場合、内部の無限ループを終了
 
         if incorrect:
-            print(f"Gane Over! Your score:{score}")
+            print(f"Game Over! Your score:{score}")
             play_again = input("Do you want to play again? (yes/no): ").lower()
             if play_again != "yes":
                 break
         else:
              break
         
-    print(f"Gane Over! Your score:{score}")
+    print(f"Time Over! Your score:{score}")
 
 if __name__ == "__main__":
     main()
