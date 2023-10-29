@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>miyayuiのテストページ</title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+    <h1>pythonでゲーム制作（2班）</h1>
+<div>
+<h2>＜ゲームの説明＞</h2>
+2班は「タイピングゲーム」を作成した。<br>
+ランダムで出題単語が表示される。時間制限を設け、時間になったら強制的にゲームが終了する。<br>
+出題内容、単語は各々が考えた。
+
+<h2>ゲームのソースコード</h2>
+<code> 
+
+    <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;"> 
+    
+    <li style="background-color:#EFF;">import random</li> 
+    
+    <li style="background-color:#EEF;">import time</li> 
+    
+    <li style="background-color:#EFF;"># ゲームで使用する単語リスト</li> 
+    
+    <li style="background-color:#EEF;">words = ["なまむぎなまごめなまたまご","あぶりかるび","てきしゅつしゅじゅつ","すもももももももものうち","ろうにゃくなんにょ","こまだいとまこまい","てきしゅつしゅじゅつ"]</li> 
+    
+    <li style="background-color:#EFF;"></li> 
+    
+    <li style="background-color:#EEF;">def main():</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("早口言葉タイピングゲーム!")</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("制限時間は60秒！すべてひらがなで入力してね！")</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;input("Enterでスタート！")</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;while True:</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score = 0</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game_duration=60</li> 
+    
+    <li style="background-color:#EFF;"></li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start_time=time.time()</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end_time=start_time+game_duration</li> 
+    
+    <li style="background-color:#EEF;"></li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incorrect = False</li> 
+    
+    <li style="background-color:#EEF;"></li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while time.time()&lt;end_time:</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;target_word = random.choice(words)</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"次の言葉を打て！: {target_word}")</li> 
+    
+    <li style="background-color:#EEF;"></li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;user_input = input()</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if user_input == target_word:</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;score += 1</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("正解!")</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("不正解!")</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;incorrect = True</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break  # 間違えた場合、内部の無限ループを終了</li> 
+    
+    <li style="background-color:#EFF;"></li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if incorrect:</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"Game Over!:{score}問正解！")</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;play_again = input("もう一度挑戦しますか？（はい/いいえ）: ").lower()</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if play_again != "はい":</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> 
+    
+    <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"終了！{score}問正解！")</li> 
+    
+    <li style="background-color:#EFF;"></li> 
+    
+    <li style="background-color:#EEF;">if __name__ == "__main__":</li> 
+    
+    <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li> 
+    
+    </ol></code> 
+
+</div>
+<div>
+<h2>メモ</h2>
+
+</div>
+         <!-- ①↓に文字を書いてみよう -->
+         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
+         <!-- ④↓に外部リンクを作ってみよう -->
+</body>
+</html>
