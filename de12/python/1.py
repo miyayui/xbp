@@ -1,11 +1,12 @@
 import random
 import time
 # ゲームで使用する単語リスト
-words = ["python", "programming", "code", "computer", "keyboard", "practice", "challenge"]
+words = ["なまむぎなまごめなまたまご","あぶりかるび","てきしゅつしゅじゅつ","すもももももももものうち","ろうにゃくなんにょ","こまだいとまこまい","てきしゅつしゅじゅつ"]
 
 def main():
-    print("Welcome to the Typing Game!")
-    input("Press Enter to start...")
+    print("早口言葉タイピングゲーム!")
+    print("制限時間は60秒！すべてひらがなで入力してね！")
+    input("Enterでスタート！")
     
     
     while True:
@@ -19,26 +20,26 @@ def main():
 
         while time.time()<end_time:
             target_word = random.choice(words)
-            print(f"Type this word: {target_word}")
+            print(f"次の言葉を打て！: {target_word}")
 
             user_input = input()
             if user_input == target_word:
                     score += 1
-                    print("Correct!")
+                    print("正解!")
             else:
-                    print("Incorrect!")
+                    print("不正解!")
                     incorrect = True
                     break  # 間違えた場合、内部の無限ループを終了
 
         if incorrect:
-            print(f"Game Over! Your score:{score}")
-            play_again = input("Do you want to play again? (yes/no): ").lower()
-            if play_again != "yes":
+            print(f"Game Over!:{score}問正解！")
+            play_again = input("もう一度挑戦しますか？（はい/いいえ）: ").lower()
+            if play_again != "はい":
                 break
         else:
              break
         
-    print(f"Time Over! Your score:{score}")
+    print(f"終了！{score}問正解！")
 
 if __name__ == "__main__":
     main()
