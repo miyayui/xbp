@@ -29,25 +29,39 @@ def main():
         feeling=input("この気温についてどのように感じますか？（暑い/寒い/ちょうどいい）")
 
         if feeling=="暑い" and temperature>30:
-            print("この服を着ましょう")
-
+            print("ノースリーブ")
+        elif feeling=="寒い" and temperature>30:
+            print("七分丈のシャツ/ノースリーブ+薄手のシャツ") 
         elif feeling=="寒い" and 25<temperature<31:
-            print("この服を着ましょう")
-
-        elif feeling=="暑い" and 25<temperature>30:
-            print("この服を着ましょう")
-
-        elif feeling=="寒い" and 19<temperature<26:
-            print("この服を着ましょう")
-
-        elif feeling=="暑い" and 14<temperature<20:
-            print("この服を着ましょう")
-
-        elif feeling=="寒い" and 14<temperature<20:
-            print("この服を着ましょう")
-        
+            print("長袖または七分丈のシャツ/半袖+薄手のシャツ")
+        elif feeling=="暑い" and 25<temperature<31:
+            print("ノースリーブ")
+        elif feeling=="寒い" and 20<temperature<26:
+            print("カーディガン/長袖+薄手のジャケット/スウェット")
+        elif feeling=="暑い" and 20<temperature<26:
+            print("半袖シャツ/七分丈のシャツ/ノースリーブ+薄手のシャツ")
+        elif feeling=="寒い" and 15<temperature<21:
+            print("セーター")
+        elif feeling=="暑い" and 15<temperature<21:
+            print("長袖または七分丈のシャツ/半袖+薄手のシャツ")
+        elif feeling=="寒い" and 11<temperature<16:
+            print("厚手のニット/トレンチコート")
+        elif feeling=="暑い" and 11<temperature<16:
+            print("カーディガン/長袖+薄手のジャケット/スウェット")
+        elif feeling=="寒い" and 7<temperature<12:
+            print("厚手のセーター/冬物のコート")
+        elif feeling=="暑い" and 7<temperature<12:
+            print("薄手のニット/トレンチコート/ダウンベスト")
+        elif feeling=="寒い" and 6<temperature<8:
+            print("厚手のセーター/冬物コート/ブーツやタイツ")
+        elif feeling=="暑い" and 6<temperature<8:
+            print("厚手のニット/トレンチコート")
+        elif feeling=="寒い" and temperature<5:
+            print("ダウンコート/ブーツ、マフラーや手袋/カイロ")
+        elif feeling=="暑い" and temperature<5:
+            print("厚手のセーター/冬物コート/ブーツやタイツ")
         else:
-            print("この服を着ましょう")
+            print("今のままでok!")
     
     else:
         print("気温の取得に失敗しました。")
