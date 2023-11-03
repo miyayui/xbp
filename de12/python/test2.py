@@ -1,6 +1,6 @@
-import requests
+import requests#pop install requestで実行可能に
 
-def get_temperature(city_name, api_key):
+def get_temperature(city_name, api_key):#APIキーを使用
     base_url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
         "q": city_name,
@@ -19,13 +19,13 @@ def get_temperature(city_name, api_key):
 
 def main():
     city_name = input("地名の名前をローマ字表記で記入")  # 取得したい都市の名前を指定
-    api_key = "31271437f69c8c0f1e30401c2f81d303"  # あなたのOpenWeatherMap APIキーを入力
+    api_key = "31271437f69c8c0f1e30401c2f81d303"  # OpenWeatherMap APIキーを入力
 
     temperature = get_temperature(city_name, api_key)
 
     if temperature is not None:
         print(f"{city_name}の現在の気温は {temperature}℃ です。")
-        
+        #OpenWeatherMapから情報を取得
         feeling=input("この気温についてどのように感じますか？（暑い/寒い/ちょうどいい）")
 
         if feeling=="暑い" and temperature>30:
@@ -61,7 +61,7 @@ def main():
         elif feeling=="暑い" and temperature<5:
             print("厚手のセーター/冬物コート/ブーツやタイツ")
         else:
-            print("今のままでok!")
+            print("今のままでok!")#取得した温度とその温度をどう感じるかによって提案してくれる洋服やアイテムの種類を変えている
     
     else:
         print("気温の取得に失敗しました。")

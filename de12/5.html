@@ -1,12 +1,103 @@
 <!DOCTYPE html>
 <html lang="jp">
 <head>
-    <!-- ⑥↓タイトルを変えてみよう -->
+    <style>
+        .container{
+            display: flex;
+        }
+        .item{
+            flex: 1;
+            text-align: center;
+        }
+    </style>
     <title>第５回</title>
-    <!-- ⑤スタイルシートの設定をしよう -->
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
-<body>
+<body style="background-color: rgb(255, 246, 228);">
+    <h1 style="background: linear-gradient(transparent 70%, #fecb6e 70%);"><font color="#3C938D">プログラミング</font></h1>
+    <div>
+        <h2><font color="#fecb6e">＜洋服提案をしてくれるプログラミング＞</font></h2>
+        <h2><font color="#fecb6e">＜ソースコード＞</font></h2>
+<code>
+<ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+<li style="background-color:#EFF;">import requests#pop install requestで実行可能に</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">def get_temperature(city_name, api_key):#APIキーを使用</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;base_url = "https://api.openweathermap.org/data/2.5/weather"</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;params = {</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"q": city_name,</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"appid": api_key,</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"units": "metric"  # 摂氏温度で取得</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;}</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = requests.get(base_url, params=params)</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = response.json()</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;temperature = data["main"]["temp"]</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return temperature</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;except Exception as e:</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("エラー:", e)</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return None</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">def main():</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;city_name = input("地名の名前をローマ字表記で記入")  # 取得したい都市の名前を指定</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;api_key = "31271437f69c8c0f1e30401c2f81d303"  # OpenWeatherMap APIキーを入力</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;temperature = get_temperature(city_name, api_key)</li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;if temperature is not None:</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"{city_name}の現在の気温は {temperature}℃ です。")</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#OpenWeatherMapから情報を取得</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;feeling=input("この気温についてどのように感じますか？（暑い/寒い/ちょうどいい）")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if feeling=="暑い" and temperature&gt;30:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("ノースリーブ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and temperature&gt;30:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("七分丈のシャツ/ノースリーブ+薄手のシャツ") </li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 25&lt;temperature&lt;31:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("長袖または七分丈のシャツ/半袖+薄手のシャツ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 25&lt;temperature&lt;31:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("ノースリーブ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 20&lt;temperature&lt;26:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("カーディガン/長袖+薄手のジャケット/スウェット")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 20&lt;temperature&lt;26:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("半袖シャツ/七分丈のシャツ/ノースリーブ+薄手のシャツ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 15&lt;temperature&lt;21:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("セーター")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 15&lt;temperature&lt;21:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("長袖または七分丈のシャツ/半袖+薄手のシャツ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 11&lt;temperature&lt;16:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("厚手のニット/トレンチコート")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 11&lt;temperature&lt;16:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("カーディガン/長袖+薄手のジャケット/スウェット")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 7&lt;temperature&lt;12:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("厚手のセーター/冬物のコート")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 7&lt;temperature&lt;12:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("薄手のニット/トレンチコート/ダウンベスト")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and 6&lt;temperature&lt;8:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("厚手のセーター/冬物コート/ブーツやタイツ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and 6&lt;temperature&lt;8:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("厚手のニット/トレンチコート")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="寒い" and temperature&lt;5:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("ダウンコート/ブーツ、マフラーや手袋/カイロ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif feeling=="暑い" and temperature&lt;5:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("厚手のセーター/冬物コート/ブーツやタイツ")</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("今のままでok!")#取得した温度とその温度をどう感じるかによって提案してくれる洋服やアイテムの種類を変えている</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("気温の取得に失敗しました。")</li>
+<li style="background-color:#EEF;"></li>
+<li style="background-color:#EFF;"></li>
+<li style="background-color:#EEF;">if __name__ == "__main__":</li>
+<li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+<li style="background-color:#EEF;"></li>
+</ol></code>
+
+<h2><font color="#fecb6e">＜説明＞</font></h2>
+<font color="#3C938D">自分が知りたい県や市を入力すると、その場所の現在の気温を表示します。<br>
+その気温について、どのように感じているかを「暑い」「寒い」「ちょうどいい」の中から選択するとどのような洋服やアイテムを身につけるといいかを提案します。<br>
+提案する洋服やアイテムは株式会社デサントの「<a href="https://www.descente.co.jp/media/wear/14186/">気温に合わせた服装選びのポイントは？おすすめアイテムやコーディネート例を紹介</a>」を参考にしました。
+</font>
+</div>
 </body>
 </html>
