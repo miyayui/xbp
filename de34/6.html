@@ -2,12 +2,22 @@
 <html lang="jp">
 <head>
     <style>
-        .container{
+        .container {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .item{
+        .image {
             flex: 1;
-            text-align: center;
+            padding: 10px;
+        }
+        .text {
+            flex: 2;
+            padding: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
     <!-- ⑥↓タイトルを変えてみよう -->
@@ -25,12 +35,19 @@
 ・<a href="https://suzytsuna.github.io/xbp/de34/">ツナ</a>
 ・<a href="https://ayana-7.github.io/xbp/de34/">ayana-7</a>
 ・miyayui
+<h1>＜ミスト付日傘＞</h1>
 </div>
-<div>
-    <h1>＜ミスト付日傘＞</h1>
+<div class="container">
+<div class="image">
     <h2>Image</h2>
-    <img src="./images/傘　イメージ.jpg" width="20%">
+    <img src="./images/傘　イメージ.jpg" width="50%" alt="傘">
+</div>
+<div class="text">
     <h2>概要</h2>
+    日傘にミストをつける<br>
+    日差しを遮り暑さをしのぐだけでなく、ミストでさらに涼しくなる！<br>
+    暑い夏を快適に過ごせる日傘！
+</div>
 </div>
 <div>
     <h1>＜プロセスメモ＞</h1>
@@ -42,19 +59,29 @@
 
     ＜プログラミング＞
     <p>
-        ■
+        ■温度センサーのプログラミング<br>
+        ●温度センサーを使って温度を測定できるようにプログラムする<br>
+        ▶プログラム完成<br><br>
+
+        ■温度センサーで一定の高い温度を測定したら、ミストを作動させるプログラミング<br>
+        ●温度センサーにIFのプログラミングをする<br>
+        ●ミストが作動するようにプログラミングする<br>
     </p>
 
     ＜外観＞<br>
     <p>
         ■ペットボトルの付け方<br>
-        ●広げたときは骨に密着するように、たたんだときはずらせるようにする
+        ●広げたときは骨に密着するように、たたんだときはずらせるようにする<br>
     </p>
 
     ＜動作＞
     <p>
         ■水からミストにする<br>
-        ●ミストにする機械
+        ●ミストにする機械を購入する<br>
+        ▶ミスト生成機を購入して、動作と構造の確認<br><br>
+
+        ■温度センサーで温度を感知しミストを作動させるにはどうしたらいいか<br>
+        ●ミスト生成機と温度センサーを連動させる
     </p>
 </div>
 <div>
