@@ -19,6 +19,15 @@
             max-width: 100%;
             height: auto;
         }
+
+        .scroll-container {
+            width: 600px; /* 必要に応じて調整 */
+            height: 200px; /* 必要に応じて調整 */
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll; /* 縦方向のスクロールを有効にする */
+            overflow-x: hidden; /* 横方向のスクロールを無効にする */
+        }
     </style>
     <!-- ⑥↓タイトルを変えてみよう -->
     <title>プロジェクトノート</title>
@@ -61,8 +70,37 @@
     <p>
         ■温度センサーのプログラミング<br>
         ●温度センサーを使って温度を測定できるようにプログラムする<br>
-        ▶プログラム完成<br><br>
-
+        ▶プログラム完成<br>
+    </p>
+<div class="scroll-container">
+    <p>// TMP36の出力ピンを接続したアナログピンの定義<br>
+       const int sensorPin = A0;<br>
+        
+        void setup() {<br>
+          // シリアル通信の初期化<br>
+          Serial.begin(9600);<br>
+        }<br>
+        
+        void loop() {<br>
+          // アナログ入力を読み取る<br>
+          int sensorValue = analogRead(sensorPin);<br>
+         
+          // 読み取った値を電圧（mV）に変換<br>
+          float voltage = sensorValue * (5000.0 / 1023.0);<br>
+         
+          // 電圧を温度（摂氏）に変換<br>
+          float temperatureC = (voltage - 600) / 10;<br>
+         
+          // 温度をシリアルモニタに出力<br>
+          Serial.print("Temperature: ");<br>
+          Serial.print(temperatureC);<br>
+          Serial.println(" C");<br>
+         
+          // 1秒待機<br>
+          delay(1000);<br>
+        }</p>
+</div>
+    <p>
         ■温度センサーで一定の高い温度を測定したら、ミストを作動させるプログラミング<br>
         ●温度センサーにIFのプログラミングをする<br>
         ●ミストが作動するようにプログラミングする<br>
@@ -73,16 +111,19 @@
         ■ペットボトルの付け方<br>
         ●広げたときは骨に密着するように、たたんだときはずらせるようにする<br>
     </p>
-
     ＜動作＞
     <p>
         ■水からミストにする<br>
         ●ミストにする機械を購入する<br>
-        ▶ミスト生成機を購入して、動作と構造の確認<br><br>
-
+        ▶ミスト生成機を購入して、動作と構造の確認<br>
+    </p>
+</div>
+<div>
+    <p>
         ■温度センサーで温度を感知しミストを作動させるにはどうしたらいいか<br>
         ●ミスト生成機と温度センサーを連動させる
     </p>
+</div>
 </div>
 <div>
     <h2>・使用したもの</h2>
