@@ -37,26 +37,26 @@
 </head>
 <body>
 <div>
-<h1>プロジェクトノート</h1>
-更新：6月20日<br>
-メンバー：<br>
-・<a href="https://wataboshi.github.io/xbp/de34/">HANA</a>
-・<a href="https://suzytsuna.github.io/xbp/de34/">ツナ</a>
-・<a href="https://ayana-7.github.io/xbp/de34/">ayana-7</a>
-・miyayui
-<h1>＜ミスト付日傘＞</h1>
+    <h1>プロジェクトノート</h1>
+    更新：6月26日<br>
+    メンバー：<br>
+    ・<a href="https://wataboshi.github.io/xbp/de34/">HANA</a>
+    ・<a href="https://suzytsuna.github.io/xbp/de34/">ツナ</a>
+    ・<a href="https://ayana-7.github.io/xbp/de34/">ayana-7</a>
+    ・miyayui
+    <h1>＜ミスト付日傘＞</h1>
 </div>
 <div class="container">
-<div class="image">
-    <h2>Image</h2>
-    <img src="./images/傘　イメージ.jpg" width="50%" alt="傘">
-</div>
-<div class="text">
-    <h2>概要</h2>
-    日傘にミストをつける<br>
-    日差しを遮り暑さをしのぐだけでなく、ミストでさらに涼しくなる！<br>
-    暑い夏を快適に過ごせる日傘！
-</div>
+    <div class="image">
+        <h2>Image</h2>
+        <img src="./images/傘　イメージ.jpg" width="50%" alt="傘">
+    </div>
+    <div class="text">
+        <h2>概要</h2>
+        日傘にミストをつける<br>
+        日差しを遮り暑さをしのぐだけでなく、ミストでさらに涼しくなる！<br>
+        暑い夏を快適に過ごせる日傘！
+    </div>
 </div>
 <div>
     <h1>＜プロセスメモ＞</h1>
@@ -65,23 +65,24 @@
     ●　⇒具体的なやること<br>
     ▶　⇒やったこと
     </p>
-
+</div>
+<div>
     ＜プログラミング＞
     <p>
         ■温度センサーのプログラミング<br>
         ●温度センサーを使って温度を測定できるようにプログラムする<br>
         ▶プログラム完成<br>
     </p>
-<div class="scroll-container">
-    <p>// TMP36の出力ピンを接続したアナログピンの定義<br>
-       const int sensorPin = A0;<br>
+    <div class="scroll-container">
+        <p>// TMP36の出力ピンを接続したアナログピンの定義<br>
+         const int sensorPin = A0;<br>
         
-        void setup() {<br>
+            void setup() {<br>
           // シリアル通信の初期化<br>
           Serial.begin(9600);<br>
-        }<br>
+         }<br>
         
-        void loop() {<br>
+            void loop() {<br>
           // アナログ入力を読み取る<br>
           int sensorValue = analogRead(sensorPin);<br>
          
@@ -99,31 +100,59 @@
           // 1秒待機<br>
           delay(1000);<br>
         }</p>
-</div>
+    </div>
     <p>
         ■温度センサーで一定の高い温度を測定したら、ミストを作動させるプログラミング<br>
-        ●温度センサーにIFのプログラミングをする<br>
         ●ミストが作動するようにプログラミングする<br>
+        ▶リレーモジュールを使用してミスト生成機を制御した<br>
+        ▶プログラミング完成
     </p>
+    <div class="scroll-container">
+        <p>
+            // リレーの制御ピンを定義<br>
+         const int relayPin = 7;<br>
+         void setup() {<br>
+            // リレーの制御ピンを出力モードに設定<br>
+            pinMode(relayPin, OUTPUT);<br>
+            // 初期状態としてリレーをオフにする<br>
+            digitalWrite(relayPin, LOW);<br>
+            }<br><br>
 
+         void loop() {<br>
+         // リレーをオンにする<br>
+            digitalWrite(relayPin, HIGH);<br>
+         // 5秒待つ<br>
+         delay(5000);<br>
+            // リレーをオフにする<br>
+         digitalWrite(relayPin, LOW);<br>
+            // 5秒待つ<br>
+         delay(5000);<br>
+         }<br>
+        </p>
+    </div>
+    <p>
+        ●温度センサーにIFのプログラミングをする<br>
+    </p>
+</div>
+<div>
     ＜外観＞<br>
     <p>
         ■ペットボトルの付け方<br>
         ●広げたときは骨に密着するように、たたんだときはずらせるようにする<br>
     </p>
+</div>
+<div>
     ＜動作＞
     <p>
         ■水からミストにする<br>
         ●ミストにする機械を購入する<br>
         ▶ミスト生成機を購入して、動作と構造の確認<br>
+        <img src="./images/ミスト.jpg" width="25%">
     </p>
-</div>
-<div>
     <p>
         ■温度センサーで温度を感知しミストを作動させるにはどうしたらいいか<br>
         ●ミスト生成機と温度センサーを連動させる
     </p>
-</div>
 </div>
 <div>
     <h2>・使用したもの</h2>
